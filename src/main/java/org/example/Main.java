@@ -1,8 +1,6 @@
 package org.example;
 
 import org.example.repository.UserDAO;
-
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Scanner;
 
