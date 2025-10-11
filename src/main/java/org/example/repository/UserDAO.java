@@ -3,6 +3,7 @@ package org.example.repository;
 import org.example.User;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
@@ -51,5 +52,17 @@ public class UserDAO {
                     return true;
                 }).orElse(false);
     }
+    public void deleteUser(String nomeDeUsuario) {
+        Iterator<User> iterator = listar().iterator();
+        while (iterator.hasNext()) {
+            User usuario = iterator.next();
+            if (usuario.getNome().equals(nomeDeUsuario)) {
+                iterator.remove();
+                return;
+            }
         }
+    }
+            }
+
+
 

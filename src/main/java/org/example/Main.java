@@ -21,6 +21,7 @@ public class Main {
             System.out.println("4 - sair");
             System.out.println("5 - Gerar user aleatorio");
             System.out.println("6 - Atualizar usuario");
+            System.out.println("7 - Excluir usuario");
             System.out.println("Escolha uma opção: ");
             int opcao = scanner.nextInt();
             scanner.nextLine();
@@ -74,8 +75,8 @@ public class Main {
                 System.out.println("Encerrando...");
                 break;
             } else if (opcao == 5){
-                userDAO.generateRandomUsers(2);
-                System.out.println("Usuerio gerado com sucesso");
+                userDAO.generateRandomUsers(1000);
+                System.out.println("Usuario gerado com sucesso");
             } else if (opcao == 6) {
                 System.out.println("Digite o nome de usuario que deseja atualizar: ");
                 String novoNome = scanner.nextLine();
@@ -88,7 +89,13 @@ public class Main {
                 if (!atualizado) {
                     System.out.println("O nome de usuario não foi atualizado");
                 }
-            } else {
+            } else if (opcao == 7) {
+                System.out.println("Digite o nome de usuario: ");
+                String nome = scanner.nextLine();
+                userDAO.deleteUser(nome);
+                System.out.println("Usuário removido com sucesso!");
+            }
+            else {
                 System.out.println("opcao invalida");
             }
         }
